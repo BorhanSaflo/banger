@@ -12,7 +12,7 @@ function noSearchDefaultPageRender() {
           <input 
             type="text" 
             class="url-input"
-            value="${import.meta.env.BASE_URL}?q=%s"
+            value="${import.meta.env.VITE_BASE_URL}?q=%s"
             readonly 
           />
           <button class="copy-button">
