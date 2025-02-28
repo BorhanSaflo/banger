@@ -42,7 +42,8 @@ body {
     color: #fff;
     background-color: #111 !important;
 
-    .url-input {
+    .url-input,
+    .bang-input {
       background: #1a1a1a;
       border-color: #333;
       color: #fff;
@@ -92,7 +93,6 @@ textarea {
   font: inherit;
 }
 
-/* Add these new styles */
 .url-container {
   display: flex;
   align-items: center;
@@ -100,15 +100,22 @@ textarea {
   margin-top: 16px;
 }
 
-/* Add this new style */
 .content-container {
   max-width: 36rem;
   text-align: center;
   padding: 0 8px;
 }
 
-/* Update url-input width to be 100% since container will control max width */
-.url-input {
+.bang-container {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.url-input,
+.bang-input {
   padding: 8px 12px;
   border: 1px solid #ddd;
   border-radius: 4px;

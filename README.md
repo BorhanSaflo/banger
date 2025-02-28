@@ -1,4 +1,4 @@
-# Unduck
+# Borhan's Unduck
 
 This is a fork of [unduck](https://github.com/t3dotgg/unduck) with some customizations that suit my needs better.
 

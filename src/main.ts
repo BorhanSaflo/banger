@@ -6,7 +6,7 @@ function noSearchDefaultPageRender() {
   app.innerHTML = `
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
       <div class="content-container">
-        <h1>Unduck</h1>
+        <h1>Borhan's Unduck</h1>
         <p>DuckDuckGo's bang redirects are too slow. Add the following URL as a custom search engine to your browser. Enables <a href="https://duckduckgo.com/bang.html" target="_blank">all of DuckDuckGo's bangs.</a></p>
         <div class="url-container"> 
           <input 
@@ -19,13 +19,26 @@ function noSearchDefaultPageRender() {
             <img src="/clipboard.svg" alt="Copy" />
           </button>
         </div>
+        <label class="bang-container">
+          <p>Default Bang:</p>
+          <input
+            class="bang-input"
+            type="text"
+            value=""
+            placeholder="Enter a bang"
+          />
+        </label>
       </div>
+        <footer class="footer">
+        <a href="https://github.com/borhansaflo/unduck" target="_blank">github</a>
+      </footer>
     </div>
   `;
 
   const copyButton = app.querySelector<HTMLButtonElement>(".copy-button")!;
   const copyIcon = copyButton.querySelector("img")!;
   const urlInput = app.querySelector<HTMLInputElement>(".url-input")!;
+  const bangInput = app.querySelector<HTMLInputElement>(".bang-input")!;
 
   copyButton.addEventListener("click", async () => {
     await navigator.clipboard.writeText(urlInput.value);
@@ -34,6 +47,22 @@ function noSearchDefaultPageRender() {
     setTimeout(() => {
       copyIcon.src = "/clipboard.svg";
     }, 2000);
+  });
+
+  bangInput.value = localStorage.getItem("default-bang") ?? "";
+
+  bangInput.addEventListener("input", () => {
+    // If the bang is empty, remove it from local storage
+    if (!bangInput.value) {
+      localStorage.removeItem("default-bang");
+      return;
+    }
+    if (bangs[bangInput.value]) {
+      localStorage.setItem("default-bang", bangInput.value);
+      bangInput.setCustomValidity("");
+    } else {
+      bangInput.setCustomValidity("Unknown bang");
+    }
   });
 }
 
