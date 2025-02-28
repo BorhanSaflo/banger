@@ -34,5 +34,14 @@
         "sc": "AI",
         "t": "cgpt-o1",
         "u": "https://chat.openai.com?model=o1&temporary-chat=true&q={{{s}}}"
-      }
+      },
+      {
+        "c": "AI",
+        "d": "www.perplexity.ai",
+        "r": 0,
+        "s": "Perplexity",
+        "sc": "AI",
+        "t": "ppx",
+        "u": "https://www.perplexity.ai/?q={{{s}}}"
+    }
 ]
