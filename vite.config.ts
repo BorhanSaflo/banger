@@ -8,7 +8,7 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate",
       workbox: {
-        maximumFileSizeToCacheInBytes: 3 * 1048576,
+        maximumFileSizeToCacheInBytes: 5 * 1048576,
       },
     }),
   ],
